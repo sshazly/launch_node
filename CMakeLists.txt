@@ -17,10 +17,7 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-find_package(launch REQUIRED)
-find_package(launch_ros REQUIRED)
-find_package(ros2launch REQUIRED)
-find_package(launch_xml REQUIRED)
+find_package(rclcpp REQUIRED)
 
 add_executable(launch src/launch.cpp)
 target_include_directories(launch PUBLIC
@@ -28,10 +25,7 @@ target_include_directories(launch PUBLIC
   $<INSTALL_INTERFACE:include>)
 ament_target_dependencies(
   launch
-  "launch"
-  "launch_ros"
-  "ros2launch"
-  "launch_xml"
+  rclcpp
 )
 
 install(TARGETS launch
